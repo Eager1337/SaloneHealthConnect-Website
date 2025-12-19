@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Doctor Dashboard - Salone Health Connect</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/dashboard.css">
+  <link rel="stylesheet" href="css/animations.css">
+</head>
+<body>
+  <div class="dashboard-container doctor-dashboard">
+    <nav class="dashboard-nav">
+      <div class="nav-brand">
+        <span class="logo-icon">🏥</span>
+        <span>Salone Health</span>
+      </div>
+      <div class="nav-user">
+        <span class="user-greeting" id="userGreeting">Hello, Doctor</span>
+        <button class="btn btn-small btn-secondary" onclick="logout()">Logout</button>
+      </div>
+      <button class="mobile-menu-btn" id="dashboardMenuBtn">☰</button>
+    </nav>
+
+    <div class="dashboard-mobile-menu" id="dashboardMobileMenu">
+      <a href="doctor.html">Dashboard</a>
+      <a href="teleconsultation.html">Consultation</a>
+      <a href="support.html">Support</a>
+      <a href="#" onclick="logout()">Logout</a>
+    </div>
+
+    <main class="dashboard-main">
+      <header class="dashboard-header doctor-header">
+        <div class="header-content">
+          <h1>Welcome, Dr. <span id="doctorName">Doctor</span></h1>
+          <p>Manage your appointments and consultations</p>
+        </div>
+        <div class="availability-toggle">
+          <label class="toggle-label">
+            <span>Availability Status:</span>
+            <div class="toggle-switch">
+              <input type="checkbox" id="availabilityToggle" checked>
+              <span class="toggle-slider"></span>
+            </div>
+            <span class="toggle-status" id="toggleStatus">Available</span>
+          </label>
+        </div>
+      </header>
+
+      <section class="doctor-stats">
+        <div class="stat-card">
+          <div class="stat-icon">📅</div>
+          <div class="stat-info">
+            <span class="stat-number">12</span>
+            <span class="stat-label">Today's Appointments</span>
+          </div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-icon">👥</div>
+          <div class="stat-info">
+            <span class="stat-number">156</span>
+            <span class="stat-label">Total Patients</span>
+          </div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-icon">📹</div>
+          <div class="stat-info">
+            <span class="stat-number">89</span>
+            <span class="stat-label">Consultations This Month</span>
+          </div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-icon">⭐</div>
+          <div class="stat-info">
+            <span class="stat-number">4.8</span>
+            <span class="stat-label">Average Rating</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="quick-actions">
+        <h2>Quick Actions</h2>
+        <div class="action-cards">
+          <a href="teleconsultation.html" class="action-card primary">
+            <div class="card-icon">📹</div>
+            <h3>Join Consultation</h3>
+            <p>Start or join a video consultation</p>
+            <span class="card-arrow">→</span>
+          </a>
+
+          <a href="support.html" class="action-card">
+            <div class="card-icon">💬</div>
+            <h3>Support Center</h3>
+            <p>Get technical help and support</p>
+            <span class="card-arrow">→</span>
+          </a>
+
+          <a href="https://wa.me/23273095177" target="_blank" class="action-card whatsapp">
+            <div class="card-icon">📱</div>
+            <h3>WhatsApp Support</h3>
+            <p>Quick assistance via WhatsApp</p>
+            <span class="card-arrow">→</span>
+          </a>
+        </div>
+      </section>
+
+      <section class="dashboard-sections">
+        <div class="section-card appointments">
+          <h3>Today's Schedule</h3>
+          <div class="appointment-list">
+            <div class="appointment-item">
+              <div class="appointment-time-badge">9:00 AM</div>
+              <div class="appointment-details">
+                <strong>Aminata Koroma</strong>
+                <span>General Checkup</span>
+                <span class="appointment-status pending">Waiting</span>
+              </div>
+              <a href="teleconsultation.html" class="btn btn-small btn-primary">Start</a>
+            </div>
+            <div class="appointment-item">
+              <div class="appointment-time-badge">10:30 AM</div>
+              <div class="appointment-details">
+                <strong>Mohamed Bangura</strong>
+                <span>Follow-up Consultation</span>
+                <span class="appointment-status upcoming">Upcoming</span>
+              </div>
+              <a href="teleconsultation.html" class="btn btn-small btn-secondary">View</a>
+            </div>
+            <div class="appointment-item">
+              <div class="appointment-time-badge">2:00 PM</div>
+              <div class="appointment-details">
+                <strong>Isatu Conteh</strong>
+                <span>New Patient Consultation</span>
+                <span class="appointment-status upcoming">Upcoming</span>
+              </div>
+              <a href="teleconsultation.html" class="btn btn-small btn-secondary">View</a>
+            </div>
+            <div class="appointment-item">
+              <div class="appointment-time-badge">4:00 PM</div>
+              <div class="appointment-details">
+                <strong>Abu Sesay</strong>
+                <span>Prescription Review</span>
+                <span class="appointment-status upcoming">Upcoming</span>
+              </div>
+              <a href="teleconsultation.html" class="btn btn-small btn-secondary">View</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="section-card recent-patients">
+          <h3>Recent Patients</h3>
+          <div class="patients-list">
+            <div class="patient-item">
+              <div class="patient-avatar">AK</div>
+              <div class="patient-info">
+                <strong>Aminata Koroma</strong>
+                <span>Last visit: Dec 15, 2024</span>
+              </div>
+            </div>
+            <div class="patient-item">
+              <div class="patient-avatar">MB</div>
+              <div class="patient-info">
+                <strong>Mohamed Bangura</strong>
+                <span>Last visit: Dec 14, 2024</span>
+              </div>
+            </div>
+            <div class="patient-item">
+              <div class="patient-avatar">FS</div>
+              <div class="patient-info">
+                <strong>Fatmata Sesay</strong>
+                <span>Last visit: Dec 12, 2024</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="dashboard-footer">
+      <p>© 2025 Salone Health Connect | <a href="support.html">Need Help?</a></p>
+    </footer>
+  </div>
+
+  <!-- Floating WhatsApp Button -->
+  <a href="https://wa.me/23273095177" target="_blank" class="whatsapp-float">
+    <span>💬</span>
+  </a>
+
+  <script src="js/navigation.js"></script>
+  <script>
+    // Load doctor name
+    document.addEventListener('DOMContentLoaded', () => {
+      const user = JSON.parse(localStorage.getItem('salone_health_user'));
+      if (user && user.name) {
+        document.getElementById('doctorName').textContent = user.name.split(' ')[0];
+        document.getElementById('userGreeting').textContent = `Hello, Dr. ${user.name.split(' ')[0]}`;
+      }
+
+      // Availability toggle
+      const toggle = document.getElementById('availabilityToggle');
+      const status = document.getElementById('toggleStatus');
+      
+      toggle.addEventListener('change', () => {
+        if (toggle.checked) {
+          status.textContent = 'Available';
+          status.style.color = '#10b981';
+        } else {
+          status.textContent = 'Unavailable';
+          status.style.color = '#ef4444';
+        }
+      });
+    });
+
+    function logout() {
+      localStorage.removeItem('salone_health_user');
+      localStorage.removeItem('salone_health_role');
+      window.location.href = 'index.html';
+    }
+  </script>
+</body>
+</html>

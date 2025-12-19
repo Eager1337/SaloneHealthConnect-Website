@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Welcome - Salone Health Connect</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/animations.css">
+</head>
+<body>
+  <div class="onboarding-container">
+    <div class="onboarding-slides" id="onboardingSlides">
+      <!-- Slide 1 -->
+      <div class="slide active" data-slide="1">
+        <div class="slide-image">
+          <img src="/placeholder.svg?height=400&width=600" alt="Healthcare Consultation">
+        </div>
+        <div class="slide-content">
+          <h2>Connect with Local Doctors</h2>
+          <p>Access verified healthcare professionals from hospitals and clinics across Sierra Leone. Get expert medical advice from doctors who understand your needs.</p>
+        </div>
+      </div>
+
+      <!-- Slide 2 -->
+      <div class="slide" data-slide="2">
+        <div class="slide-image">
+          <img src="/placeholder.svg?height=400&width=600" alt="Teleconsultation">
+        </div>
+        <div class="slide-content">
+          <h2>Video Teleconsultations</h2>
+          <p>Speak face-to-face with doctors through secure video calls. No need to travel - receive quality healthcare from anywhere in Sierra Leone.</p>
+        </div>
+      </div>
+
+      <!-- Slide 3 -->
+      <div class="slide" data-slide="3">
+        <div class="slide-image">
+          <img src="/placeholder.svg?height=400&width=600" alt="Mobile Healthcare">
+        </div>
+        <div class="slide-content">
+          <h2>Healthcare in Your Hands</h2>
+          <p>Book appointments, manage prescriptions, and access your health records - all from your mobile device. Healthcare made simple for every Sierra Leonean.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="onboarding-controls">
+      <div class="slide-dots">
+        <span class="dot active" data-dot="1"></span>
+        <span class="dot" data-dot="2"></span>
+        <span class="dot" data-dot="3"></span>
+      </div>
+      <div class="slide-buttons">
+        <button class="btn btn-secondary" id="skipBtn">Skip</button>
+        <button class="btn btn-primary" id="nextBtn">Next</button>
+      </div>
+    </div>
+
+    <div class="onboarding-progress">
+      <div class="progress-bar" id="progressBar"></div>
+    </div>
+  </div>
+
+  <!-- Floating WhatsApp Button -->
+  <a href="https://wa.me/23273095177" target="_blank" class="whatsapp-float">
+    <span>💬</span>
+  </a>
+
+  <script>
+    const slides = document.querySelectorAll('.slide');
+    const dots = document.querySelectorAll('.dot');
+    const nextBtn = document.getElementById('nextBtn');
+    const skipBtn = document.getElementById('skipBtn');
+    const progressBar = document.getElementById('progressBar');
+    let currentSlide = 1;
+    const totalSlides = 3;
+
+    function updateSlide(slideNum) {
+      slides.forEach(slide => {
+        slide.classList.remove('active');
+        if (parseInt(slide.dataset.slide) === slideNum) {
+          slide.classList.add('active');
+        }
+      });
+
+      dots.forEach(dot => {
+        dot.classList.remove('active');
+        if (parseInt(dot.dataset.dot) === slideNum) {
+          dot.classList.add('active');
+        }
+      });
+
+      progressBar.style.width = `${(slideNum / totalSlides) * 100}%`;
+
+      if (slideNum === totalSlides) {
+        nextBtn.textContent = 'Get Started';
+      } else {
+        nextBtn.textContent = 'Next';
+      }
+    }
+
+    nextBtn.addEventListener('click', () => {
+      if (currentSlide < totalSlides) {
+        currentSlide++;
+        updateSlide(currentSlide);
+      } else {
+        window.location.href = 'auth.html';
+      }
+    });
+
+    skipBtn.addEventListener('click', () => {
+      window.location.href = 'auth.html';
+    });
+
+    dots.forEach(dot => {
+      dot.addEventListener('click', () => {
+        currentSlide = parseInt(dot.dataset.dot);
+        updateSlide(currentSlide);
+      });
+    });
+
+    // Initialize
+    updateSlide(1);
+  </script>
+</body>
+</html>

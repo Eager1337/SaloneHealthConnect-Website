@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sign Up / Login - Salone Health Connect</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/animations.css">
+</head>
+<body>
+  <div class="auth-container">
+    <div class="auth-visual">
+      <img src="/placeholder.svg?height=800&width=600" alt="Sierra Leone Healthcare">
+      <div class="auth-visual-overlay">
+        <h2>Welcome to Salone Health Connect</h2>
+        <p>Your trusted healthcare partner in Sierra Leone</p>
+      </div>
+    </div>
+
+    <div class="auth-form-container">
+      <a href="index.html" class="back-link">← Back to Home</a>
+      
+      <div class="auth-header">
+        <span class="logo-icon">🏥</span>
+        <h1>Salone Health Connect</h1>
+      </div>
+
+      <div class="auth-tabs">
+        <button class="auth-tab active" data-tab="signup">Sign Up</button>
+        <button class="auth-tab" data-tab="login">Login</button>
+      </div>
+
+      <!-- Sign Up Form -->
+      <form class="auth-form active" id="signupForm" data-form="signup">
+        <h2>Create Your Account</h2>
+        <p class="form-subtitle">Join thousands of Sierra Leoneans accessing quality healthcare</p>
+        
+        <div class="form-group">
+          <label for="signupName">Full Name</label>
+          <input type="text" id="signupName" placeholder="Enter your full name" required>
+          <span class="error-message" id="nameError"></span>
+        </div>
+
+        <div class="form-group">
+          <label for="signupEmail">Email Address</label>
+          <input type="email" id="signupEmail" placeholder="Enter your email" required>
+          <span class="error-message" id="emailError"></span>
+        </div>
+
+        <div class="form-group">
+          <label for="signupPhone">Phone Number</label>
+          <input type="tel" id="signupPhone" placeholder="+232 XX XXX XXXX" required>
+          <span class="error-message" id="phoneError"></span>
+        </div>
+
+        <div class="form-group">
+          <label for="signupPassword">Password</label>
+          <input type="password" id="signupPassword" placeholder="Create a password" required>
+          <span class="error-message" id="passwordError"></span>
+        </div>
+
+        <button type="submit" class="btn btn-primary btn-full">Create Account</button>
+        
+        <p class="form-footer">
+          Already have an account? <a href="#" class="switch-form" data-switch="login">Login here</a>
+        </p>
+      </form>
+
+      <!-- Login Form -->
+      <form class="auth-form" id="loginForm" data-form="login">
+        <h2>Welcome Back</h2>
+        <p class="form-subtitle">Login to access your healthcare dashboard</p>
+        
+        <div class="form-group">
+          <label for="loginEmail">Email Address</label>
+          <input type="email" id="loginEmail" placeholder="Enter your email" required>
+          <span class="error-message" id="loginEmailError"></span>
+        </div>
+
+        <div class="form-group">
+          <label for="loginPassword">Password</label>
+          <input type="password" id="loginPassword" placeholder="Enter your password" required>
+          <span class="error-message" id="loginPasswordError"></span>
+        </div>
+
+        <button type="submit" class="btn btn-primary btn-full">Login</button>
+        
+        <p class="form-footer">
+          Don't have an account? <a href="#" class="switch-form" data-switch="signup">Sign up here</a>
+        </p>
+      </form>
+
+      <div class="auth-divider">
+        <span>Need help?</span>
+      </div>
+
+      <a href="https://wa.me/23273095177" target="_blank" class="btn btn-whatsapp btn-full">
+        <span class="whatsapp-icon">💬</span>
+        Contact Support on WhatsApp
+      </a>
+    </div>
+  </div>
+
+  <!-- Floating WhatsApp Button -->
+  <a href="https://wa.me/23273095177" target="_blank" class="whatsapp-float">
+    <span>💬</span>
+  </a>
+
+  <script src="js/auth.js"></script>
+</body>
+</html>

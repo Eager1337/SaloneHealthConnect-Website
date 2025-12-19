@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Teleconsultation - Salone Health Connect</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/dashboard.css">
+  <link rel="stylesheet" href="css/animations.css">
+</head>
+<body>
+  <div class="teleconsult-container">
+    <nav class="teleconsult-nav">
+      <a href="#" onclick="goBack()" class="back-btn">← Back to Dashboard</a>
+      <span class="call-status" id="callStatus">Ready to Connect</span>
+    </nav>
+
+    <main class="teleconsult-main">
+      <div class="video-section">
+        <div class="video-container">
+          <video id="localVideo" autoplay muted playsinline class="local-video"></video>
+          <div class="video-placeholder" id="videoPlaceholder">
+            <div class="placeholder-icon">📹</div>
+            <p>Click "Start Camera" to begin</p>
+          </div>
+          <div class="remote-video-container" id="remoteContainer">
+            <div class="remote-placeholder">
+              <div class="placeholder-avatar">👨‍⚕️</div>
+              <p>Waiting for doctor to join...</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="video-controls">
+          <button class="control-btn" id="cameraBtn" onclick="toggleCamera()">
+            <span class="btn-icon">📷</span>
+            <span class="btn-label">Start Camera</span>
+          </button>
+          <button class="control-btn" id="muteBtn" onclick="toggleMute()" disabled>
+            <span class="btn-icon">🎤</span>
+            <span class="btn-label">Mute</span>
+          </button>
+          <button class="control-btn" id="videoToggleBtn" onclick="toggleVideo()" disabled>
+            <span class="btn-icon">📹</span>
+            <span class="btn-label">Camera Off</span>
+          </button>
+          <button class="control-btn end-call" id="endBtn" onclick="endSession()">
+            <span class="btn-icon">📞</span>
+            <span class="btn-label">End Session</span>
+          </button>
+        </div>
+      </div>
+
+      <div class="chat-section">
+        <div class="chat-header">
+          <h3>Chat</h3>
+          <span class="online-indicator">● Online</span>
+        </div>
+        <div class="chat-messages" id="chatMessages">
+          <div class="chat-message system">
+            <p>Welcome to the consultation room. The chat feature allows you to communicate during your session.</p>
+          </div>
+          <div class="chat-message received">
+            <div class="message-avatar">👨‍⚕️</div>
+            <div class="message-content">
+              <span class="message-sender">Dr. Kamara</span>
+              <p>Hello! I'll be with you shortly. Please make sure your camera and microphone are working.</p>
+              <span class="message-time">Just now</span>
+            </div>
+          </div>
+        </div>
+        <div class="chat-input">
+          <input type="text" id="messageInput" placeholder="Type a message..." onkeypress="handleKeyPress(event)">
+          <button class="send-btn" onclick="sendMessage()">Send</button>
+        </div>
+      </div>
+    </main>
+
+    <div class="consultation-info">
+      <div class="info-card">
+        <h4>Consultation Tips</h4>
+        <ul>
+          <li>Ensure you're in a quiet, well-lit area</li>
+          <li>Have your medical history ready if needed</li>
+          <li>Write down any questions beforehand</li>
+          <li>Test your camera and microphone before starting</li>
+        </ul>
+      </div>
+      <a href="https://wa.me/23273095177" target="_blank" class="btn btn-whatsapp btn-full">
+        <span>💬</span> Technical Issues? Contact Support
+      </a>
+    </div>
+  </div>
+
+  <!-- Floating WhatsApp Button -->
+  <a href="https://wa.me/23273095177" target="_blank" class="whatsapp-float">
+    <span>💬</span>
+  </a>
+
+  <script src="js/camera.js"></script>
+</body>
+</html>

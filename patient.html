@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Patient Dashboard - Salone Health Connect</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/dashboard.css">
+  <link rel="stylesheet" href="css/animations.css">
+</head>
+<body>
+  <div class="dashboard-container">
+    <nav class="dashboard-nav">
+      <div class="nav-brand">
+        <span class="logo-icon">🏥</span>
+        <span>Salone Health</span>
+      </div>
+      <div class="nav-user">
+        <span class="user-greeting" id="userGreeting">Hello, Patient</span>
+        <button class="btn btn-small btn-secondary" onclick="logout()">Logout</button>
+      </div>
+      <button class="mobile-menu-btn" id="dashboardMenuBtn">☰</button>
+    </nav>
+
+    <div class="dashboard-mobile-menu" id="dashboardMobileMenu">
+      <a href="patient.html">Dashboard</a>
+      <a href="teleconsultation.html">Consultation</a>
+      <a href="directory.html">Find Doctors</a>
+      <a href="support.html">Support</a>
+      <a href="#" onclick="logout()">Logout</a>
+    </div>
+
+    <main class="dashboard-main">
+      <header class="dashboard-header">
+        <div class="header-content">
+          <h1>Welcome back, <span id="patientName">Patient</span>!</h1>
+          <p>How can we help you today?</p>
+        </div>
+        <div class="header-image">
+          <img src="/placeholder.svg?height=200&width=300" alt="Patient Care">
+        </div>
+      </header>
+
+      <section class="quick-actions">
+        <h2>Quick Actions</h2>
+        <div class="action-cards">
+          <a href="teleconsultation.html" class="action-card primary">
+            <div class="card-icon">📹</div>
+            <h3>Start Teleconsultation</h3>
+            <p>Connect with a doctor via video call now</p>
+            <span class="card-arrow">→</span>
+          </a>
+
+          <a href="directory.html" class="action-card">
+            <div class="card-icon">👨‍⚕️</div>
+            <h3>Find Doctors</h3>
+            <p>Browse our directory of verified doctors</p>
+            <span class="card-arrow">→</span>
+          </a>
+
+          <a href="support.html" class="action-card">
+            <div class="card-icon">💬</div>
+            <h3>Customer Support</h3>
+            <p>Get help from our support team</p>
+            <span class="card-arrow">→</span>
+          </a>
+
+          <a href="https://wa.me/23273095177" target="_blank" class="action-card whatsapp">
+            <div class="card-icon">📱</div>
+            <h3>WhatsApp Support</h3>
+            <p>Chat with us directly on WhatsApp</p>
+            <span class="card-arrow">→</span>
+          </a>
+        </div>
+      </section>
+
+      <section class="dashboard-sections">
+        <div class="section-card appointments">
+          <h3>Upcoming Appointments</h3>
+          <div class="appointment-list" id="appointmentList">
+            <div class="appointment-item">
+              <div class="appointment-icon">📅</div>
+              <div class="appointment-details">
+                <strong>Dr. Amara Kamara</strong>
+                <span>General Consultation</span>
+                <span class="appointment-time">Tomorrow, 10:00 AM</span>
+              </div>
+              <a href="teleconsultation.html" class="btn btn-small btn-primary">Join</a>
+            </div>
+            <div class="appointment-item">
+              <div class="appointment-icon">📅</div>
+              <div class="appointment-details">
+                <strong>Dr. Fatmata Sesay</strong>
+                <span>Follow-up Visit</span>
+                <span class="appointment-time">Dec 22, 2:00 PM</span>
+              </div>
+              <a href="teleconsultation.html" class="btn btn-small btn-primary">Join</a>
+            </div>
+          </div>
+          <a href="directory.html" class="section-link">Book New Appointment →</a>
+        </div>
+
+        <div class="section-card health-tips">
+          <h3>Health Tips</h3>
+          <div class="tips-list">
+            <div class="tip-item">
+              <span class="tip-icon">💧</span>
+              <p>Stay hydrated - drink at least 8 glasses of water daily</p>
+            </div>
+            <div class="tip-item">
+              <span class="tip-icon">🏃</span>
+              <p>Regular exercise helps maintain good health</p>
+            </div>
+            <div class="tip-item">
+              <span class="tip-icon">😴</span>
+              <p>Get 7-8 hours of sleep for optimal health</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="nearby-facilities">
+        <h2>Nearby Healthcare Facilities</h2>
+        <div class="facilities-grid">
+          <div class="facility-card" onclick="window.location.href='directory.html'">
+            <img src="/placeholder.svg?height=150&width=250" alt="Connaught Hospital">
+            <div class="facility-info">
+              <h4>Connaught Hospital</h4>
+              <p>Freetown</p>
+              <span class="facility-distance">2.5 km away</span>
+            </div>
+          </div>
+          <div class="facility-card" onclick="window.location.href='directory.html'">
+            <img src="/placeholder.svg?height=150&width=250" alt="City Medical Center">
+            <div class="facility-info">
+              <h4>City Medical Center</h4>
+              <p>Aberdeen, Freetown</p>
+              <span class="facility-distance">4.1 km away</span>
+            </div>
+          </div>
+          <div class="facility-card" onclick="window.location.href='directory.html'">
+            <img src="/placeholder.svg?height=150&width=250" alt="HealthPlus Clinic">
+            <div class="facility-info">
+              <h4>HealthPlus Clinic</h4>
+              <p>Hill Station</p>
+              <span class="facility-distance">5.8 km away</span>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="dashboard-footer">
+      <p>© 2025 Salone Health Connect | <a href="support.html">Need Help?</a></p>
+    </footer>
+  </div>
+
+  <!-- Floating WhatsApp Button -->
+  <a href="https://wa.me/23273095177" target="_blank" class="whatsapp-float">
+    <span>💬</span>
+  </a>
+
+  <script src="js/navigation.js"></script>
+  <script>
+    // Load patient name
+    document.addEventListener('DOMContentLoaded', () => {
+      const user = JSON.parse(localStorage.getItem('salone_health_user'));
+      if (user && user.name) {
+        document.getElementById('patientName').textContent = user.name.split(' ')[0];
+        document.getElementById('userGreeting').textContent = `Hello, ${user.name.split(' ')[0]}`;
+      }
+    });
+
+    function logout() {
+      localStorage.removeItem('salone_health_user');
+      localStorage.removeItem('salone_health_role');
+      window.location.href = 'index.html';
+    }
+  </script>
+</body>
+</html>

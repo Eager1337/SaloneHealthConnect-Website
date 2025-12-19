@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Customer Support - Salone Health Connect</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/dashboard.css">
+  <link rel="stylesheet" href="css/animations.css">
+</head>
+<body>
+  <div class="support-container">
+    <nav class="dashboard-nav">
+      <div class="nav-brand">
+        <span class="logo-icon">🏥</span>
+        <span>Salone Health</span>
+      </div>
+      <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="patient.html">Dashboard</a>
+        <a href="directory.html">Find Doctors</a>
+      </div>
+      <button class="mobile-menu-btn" id="dashboardMenuBtn">☰</button>
+    </nav>
+
+    <div class="dashboard-mobile-menu" id="dashboardMobileMenu">
+      <a href="index.html">Home</a>
+      <a href="patient.html">Dashboard</a>
+      <a href="directory.html">Find Doctors</a>
+    </div>
+
+    <main class="support-main">
+      <header class="support-header">
+        <h1>How Can We Help You?</h1>
+        <p>Our support team is here to assist you 24/7</p>
+      </header>
+
+      <section class="support-options">
+        <a href="https://wa.me/23273095177" target="_blank" class="support-card primary">
+          <div class="support-icon">💬</div>
+          <h3>WhatsApp Support</h3>
+          <p>Get instant help via WhatsApp. Our team responds quickly!</p>
+          <span class="support-action">Chat Now →</span>
+        </a>
+
+        <div class="support-card" onclick="document.getElementById('contactForm').scrollIntoView({behavior: 'smooth'})">
+          <div class="support-icon">📧</div>
+          <h3>Send a Message</h3>
+          <p>Fill out our contact form and we'll get back to you</p>
+          <span class="support-action">Contact Us →</span>
+        </div>
+
+        <div class="support-card" onclick="document.getElementById('faqSection').scrollIntoView({behavior: 'smooth'})">
+          <div class="support-icon">❓</div>
+          <h3>FAQs</h3>
+          <p>Find answers to commonly asked questions</p>
+          <span class="support-action">View FAQs →</span>
+        </div>
+      </section>
+
+      <section class="faq-section" id="faqSection">
+        <h2>Frequently Asked Questions</h2>
+        <div class="faq-list">
+          <div class="faq-item" onclick="toggleFaq(this)">
+            <div class="faq-question">
+              <span>How do I book a teleconsultation?</span>
+              <span class="faq-toggle">+</span>
+            </div>
+            <div class="faq-answer">
+              <p>To book a teleconsultation, go to "Find Doctors" from your dashboard, select a doctor, choose your preferred date and time, and confirm your booking. You'll receive a confirmation with a link to join the video call.</p>
+            </div>
+          </div>
+
+          <div class="faq-item" onclick="toggleFaq(this)">
+            <div class="faq-question">
+              <span>What equipment do I need for a video consultation?</span>
+              <span class="faq-toggle">+</span>
+            </div>
+            <div class="faq-answer">
+              <p>You'll need a smartphone, tablet, or computer with a camera and microphone. Make sure you have a stable internet connection and are in a quiet, well-lit area for the best experience.</p>
+            </div>
+          </div>
+
+          <div class="faq-item" onclick="toggleFaq(this)">
+            <div class="faq-question">
+              <span>Is my medical information secure?</span>
+              <span class="faq-toggle">+</span>
+            </div>
+            <div class="faq-answer">
+              <p>Yes, we take your privacy seriously. All consultations are encrypted, and your medical information is stored securely. We comply with healthcare data protection standards.</p>
+            </div>
+          </div>
+
+          <div class="faq-item" onclick="toggleFaq(this)">
+            <div class="faq-question">
+              <span>How do I cancel or reschedule an appointment?</span>
+              <span class="faq-toggle">+</span>
+            </div>
+            <div class="faq-answer">
+              <p>You can cancel or reschedule appointments from your dashboard up to 2 hours before the scheduled time. Go to "Upcoming Appointments" and select the appointment you wish to modify.</p>
+            </div>
+          </div>
+
+          <div class="faq-item" onclick="toggleFaq(this)">
+            <div class="faq-question">
+              <span>What payment methods are accepted?</span>
+              <span class="faq-toggle">+</span>
+            </div>
+            <div class="faq-answer">
+              <p>We accept mobile money (Orange Money, Africell Money), bank transfers, and cash payments at partner facilities. Payment details are provided when you book an appointment.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="contact-section" id="contactForm">
+        <h2>Send Us a Message</h2>
+        <form class="support-form" onsubmit="submitSupportForm(event)">
+          <div class="form-row">
+            <div class="form-group">
+              <label for="supportName">Your Name</label>
+              <input type="text" id="supportName" placeholder="Enter your name" required>
+            </div>
+            <div class="form-group">
+              <label for="supportEmail">Email Address</label>
+              <input type="email" id="supportEmail" placeholder="Enter your email" required>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="supportPhone">Phone Number</label>
+            <input type="tel" id="supportPhone" placeholder="+232 XX XXX XXXX">
+          </div>
+
+          <div class="form-group">
+            <label for="supportSubject">Subject</label>
+            <select id="supportSubject" required>
+              <option value="">Select a topic</option>
+              <option value="technical">Technical Issue</option>
+              <option value="appointment">Appointment Help</option>
+              <option value="billing">Billing Question</option>
+              <option value="feedback">Feedback</option>
+              <option value="other">Other</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="supportMessage">Your Message</label>
+            <textarea id="supportMessage" rows="5" placeholder="Describe your issue or question..." required></textarea>
+          </div>
+
+          <button type="submit" class="btn btn-primary btn-full">Send Message</button>
+        </form>
+      </section>
+
+      <section class="contact-info">
+        <h2>Other Ways to Reach Us</h2>
+        <div class="contact-cards">
+          <div class="contact-card">
+            <div class="contact-icon">📞</div>
+            <h4>Phone</h4>
+            <p>+232 73 095 177</p>
+          </div>
+          <div class="contact-card">
+            <div class="contact-icon">📧</div>
+            <h4>Email</h4>
+            <p>support@salonehealthconnect.com</p>
+          </div>
+          <div class="contact-card">
+            <div class="contact-icon">📍</div>
+            <h4>Address</h4>
+            <p>Freetown, Sierra Leone</p>
+          </div>
+        </div>
+      </section>
+
+      <div class="back-to-dashboard">
+        <a href="patient.html" class="btn btn-secondary">← Back to Dashboard</a>
+      </div>
+    </main>
+
+    <footer class="dashboard-footer">
+      <p>© 2025 Salone Health Connect | Proudly serving Sierra Leone</p>
+    </footer>
+  </div>
+
+  <!-- Floating WhatsApp Button -->
+  <a href="https://wa.me/23273095177" target="_blank" class="whatsapp-float">
+    <span>💬</span>
+  </a>
+
+  <script src="js/navigation.js"></script>
+  <script>
+    function toggleFaq(element) {
+      element.classList.toggle('active');
+    }
+
+    function submitSupportForm(event) {
+      event.preventDefault();
+      const name = document.getElementById('supportName').value;
+      const email = document.getElementById('supportEmail').value;
+      const phone = document.getElementById('supportPhone').value;
+      const subject = document.getElementById('supportSubject').value;
+      const message = document.getElementById('supportMessage').value;
+
+      // Store in localStorage for demo
+      const ticket = {
+        id: Date.now(),
+        name,
+        email,
+        phone,
+        subject,
+        message,
+        date: new Date().toISOString()
+      };
+
+      const tickets = JSON.parse(localStorage.getItem('support_tickets') || '[]');
+      tickets.push(ticket);
+      localStorage.setItem('support_tickets', JSON.stringify(tickets));
+
+      alert('Thank you for your message! Our support team will get back to you within 24 hours.');
+      event.target.reset();
+    }
+  </script>
+</body>
+</html>
